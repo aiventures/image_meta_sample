@@ -1,0 +1,10 @@
+Activity
+	Running
+Location
+	Germany
+		Baden-Württemberg
+			Bruchsal
+Landscape
+	Fields
+	Nature
+	
