@@ -12,6 +12,7 @@ __pycache__/
 Sample/00_OWN_STUFF/metadata_own.tpl
 Sample/00_OWN_STUFF/work_settings.json
 Sample/img_test/*.*
+Sample/20_FileCopy/trg
 
 # Executables
 *.swf
