@@ -11,13 +11,13 @@ from image_meta.controller import Controller
 # --- EXECUTE METADATA RUN FOR IMAGES ---
 # * copy metadata.tpl and metadata_exif to target directory
 # * set default gps / in case track is used, adjust the GPS data as needed (defaultname tracks.gpx)
-# * in explorer simply copy path and start the script / alternatively paste the path into input
+# * in explorer simply copy path and start the script / alternatively paste the path from explorer address into clipboard
 
 #control_params
 showinfo = True # show info during execution
-verbose = False # Show detailed information
+verbose = True # Show detailed information
 ext_list = ["meta","geo"] # move / copy auxiliary files for given extensions after processing
-del_list = [*ext_list,"jpg_original","tif","dop","arw"] # same but list of extension for file types to be deleted
+del_list = [*ext_list,"jpg_original","tif","arw.dop","dop","arw"] # same but list of extension for file types to be deleted
 persist = True # apply changes, eg copy files / delete files show upoming changes only otherwise
 metadata_subdir = "metadata" #subdirectory to store any generated metadata of interest
 metadata_file = "metadata.tpl" #default name of metadata file / is assumed to reside in working directory
@@ -25,7 +25,14 @@ metadata_file = "metadata.tpl" #default name of metadata file / is assumed to re
 print("--- IMAGE METADATA PROCESSING ----")
 
 # get filepath either from clipboard, or from input, will be None if invalid filepath is given
+# filepaths will be determined in the following order:
+# 1 if valid filepath is given in code here
+# 2 valid filepath is copied into clipboard 
+# 3 valid filepath entered in input
+# 4 None if no valid filepath is given
+
 fp = None
+fp = r"C:\<path to your directory>\_test_"
 
 if isinstance(fp,str) and not(os.path.isdir(fp)):
     fp = None
